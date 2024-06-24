@@ -1,0 +1,148 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+.body {
+  height: 100%;
+  min-width: 100vw;
+  /*  max-width: 100%; */
+}
+.navbar {
+  width: 95%;
+}
+.backgrnd {
+  background-image: linear-gradient(to left, rgb(25, 63, 25), black);
+}
+.marquee-container {
+  overflow: hidden;
+  /* width: 100%; */
+
+  /*  transform: rotateZ(-90deg); */
+}
+.crypto-container {
+  display: flex;
+  animation: marquee 10s infinite linear;
+}
+.crypto {
+  flex-basis: 20%;
+  flex-shrink: 0;
+}
+
+@keyframes marquee {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+.crypto-container2 {
+  display: flex;
+  animation: marquee2 10s infinite linear;
+}
+@keyframes marquee2 {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+.hamburger {
+  .ham1,
+  .ham2,
+  .ham3 {
+    height: 0.2rem;
+    width: 1.8rem;
+  }
+  .ham2 {
+    margin-top: 0.3rem;
+    margin-bottom: 0.3rem;
+  }
+}
+.hamburger-press {
+  .ham1 {
+    transform: translateY(0.5rem) rotateZ(45deg);
+    transition: 0.3s;
+  }
+  .ham3 {
+    transform: translateY(-0.5rem) rotateZ(-45deg);
+    transition: 0.3s;
+  }
+  .ham2 {
+    transform: translateX(15rem);
+    transition: 1s;
+  }
+}
+.market-cap {
+  text-align: right;
+}
+.table-content {
+  display: grid;
+  grid-template-columns: 0.5fr 2fr 1fr 1fr 1.5fr;
+  padding: 15px 20px;
+  align-items: center;
+  border-bottom: 1px solid #3c3c3c;
+}
+
+.scaleup {
+  animation-name: scaleup;
+  animation-duration: 0.5s;
+  animation-iteration-count: 1;
+  transition-timing-function: ease-in-out;
+}
+@keyframes scaleup {
+  0% {
+    transform: scale(0);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+.scaleup2 {
+  animation-name: scaleup;
+  animation-duration: 0.5s;
+  animation-iteration-count: 1;
+  transition-timing-function: ease-in-out;
+  animation-delay: 0.2s;
+}
+.scaleup3 {
+  animation-name: scaleup;
+  animation-duration: 0.5s;
+  animation-iteration-count: 1;
+  transition-timing-function: ease-in-out;
+  animation-delay: 0.3s;
+}
+.slide1 {
+  animation-name: slide;
+  animation-duration: 0.6s;
+  animation-iteration-count: 1;
+  transition-timing-function: ease-in-out;
+}
+.slide2 {
+  animation-name: slide2;
+  animation-duration: 0.6s;
+  animation-iteration-count: 1;
+  transition-timing-function: ease-in-out;
+}
+@keyframes slide {
+  0% {
+    transform: translateX(50rem);
+  }
+  100% {
+    transform: translateX(0rem);
+  }
+}
+@keyframes slide2 {
+  0% {
+    transform: translateX(-50rem);
+  }
+  100% {
+    transform: translateX(0rem);
+  }
+}
+.line-break {
+  height: 0.05rem;
+}
