@@ -82,6 +82,9 @@ export default function Buy() {
           />
         </div>
       </div>
+      <p className="w-20 h-10 font-bold bg-yellow-500 text-black text-center rounded-md cursor-pointer pt-2 mx-auto hover:bg-green-300 hover:text-black mt-4">
+        Add Card
+      </p>
       <p
         className={
           localStorage.getItem("theme") == "dark"
