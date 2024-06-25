@@ -5,7 +5,9 @@ import "./App.css";
 import { Routes, Route, Link } from "react-router-dom";
 import Pricing from "./pricing";
 import Home from "./home";
+import Buy from "./buy";
 /* import Coins from "./coins"; */
+
 import CoinInfo from "./coininfo";
 import Coins from "./coins";
 import NFT from "./nft";
@@ -17,6 +19,7 @@ export let context = createContext();
 function App() {
   let [currency, setCurrency] = useState("usd");
   let [lgn, setLgn] = useState(false);
+  let [trueLogin, setTrueLogin] = useState(false);
   function currencyType(e) {
     setCurrency(e.target.value);
   }
@@ -104,6 +107,8 @@ function App() {
         setPassword,
         lgn,
         setLgn,
+        trueLogin,
+        setTrueLogin,
       }}
     >
       <div
@@ -224,7 +229,7 @@ function App() {
                 ☼
               </div>
             )}
-            {lgn ? (
+            {lgn && trueLogin ? (
               <div
                 className={
                   localStorage.getItem("theme") == "dark"
@@ -325,38 +330,77 @@ function App() {
                 Pricing
               </Link>
             </p>
-            <p
-              className={
-                localStorage.getItem("theme") == "dark"
-                  ? "text-md font-bold text-blue-500  hover:text-yellow-400 mt-1 mb-1 text-center"
-                  : "text-md font-bold text-blue-500  hover:text-yellow-400 mt-1 mb-1 text-center"
-              }
-            >
-              <Link
-                onClick={() => {
-                  setHam(!ham);
-                }}
-                to={"/login"}
-              >
-                Login
-              </Link>
-            </p>
-            <p
-              className={
-                localStorage.getItem("theme") == "dark"
-                  ? "text-md font-bold text-blue-700  hover:text-yellow-400 text-center"
-                  : "text-md font-bold text-blue-700  hover:text-yellow-400 text-center"
-              }
-            >
-              <Link
-                onClick={() => {
-                  setHam(!ham);
-                }}
-                to={"/signup"}
-              >
-                SignUp
-              </Link>
-            </p>
+            {lgn && trueLogin ? (
+              <>
+                <p
+                  className={
+                    localStorage.getItem("theme") == "dark"
+                      ? "text-md font-bold text-blue-500  hover:text-yellow-400 mt-1 mb-1 text-center"
+                      : "text-md font-bold text-blue-500  hover:text-yellow-400 mt-1 mb-1 text-center"
+                  }
+                >
+                  <Link
+                    onClick={() => {
+                      setHam(!ham);
+                    }}
+                    to={"/login"}
+                  >
+                    {localStorage.getItem("username")}
+                  </Link>
+                </p>
+                <p
+                  className={
+                    localStorage.getItem("theme") == "dark"
+                      ? "text-md font-bold text-blue-500  hover:text-yellow-400  text-center"
+                      : "text-md font-bold text-blue-500  hover:text-yellow-400  text-center"
+                  }
+                >
+                  <Link
+                    onClick={() => {
+                      setHam(!ham);
+                    }}
+                    to={"/"}
+                  >
+                    Home
+                  </Link>
+                </p>
+              </>
+            ) : (
+              <>
+                <p
+                  className={
+                    localStorage.getItem("theme") == "dark"
+                      ? "text-md font-bold text-blue-500  hover:text-yellow-400 mt-1 mb-1 text-center"
+                      : "text-md font-bold text-blue-500  hover:text-yellow-400 mt-1 mb-1 text-center"
+                  }
+                >
+                  <Link
+                    onClick={() => {
+                      setHam(!ham);
+                    }}
+                    to={"/login"}
+                  >
+                    Login
+                  </Link>
+                </p>
+                <p
+                  className={
+                    localStorage.getItem("theme") == "dark"
+                      ? "text-md font-bold text-blue-700  hover:text-yellow-400 text-center"
+                      : "text-md font-bold text-blue-700  hover:text-yellow-400 text-center"
+                  }
+                >
+                  <Link
+                    onClick={() => {
+                      setHam(!ham);
+                    }}
+                    to={"/signup"}
+                  >
+                    SignUp
+                  </Link>
+                </p>
+              </>
+            )}
           </div>
         ) : null}
         <p
@@ -375,6 +419,7 @@ function App() {
           <Route path="/nftinfo/:id" element={<NFTInfo />} />
           <Route path="/signup" element={<SignUp />} />
           <Route path="/login" element={<Login />} />
+          <Route path="/buy" element={<Buy />} />
         </Routes>
       </div>
     </context.Provider>

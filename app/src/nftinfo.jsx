@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
+import { Link } from "react-router-dom";
 export default function NFTInfo() {
   let { id } = useParams();
   let [data, setData] = useState({});
@@ -150,6 +151,11 @@ export default function NFTInfo() {
               ? "$" + data.market_cap.usd
               : "ETH" + data.market_cap.native_currency}
           </p>
+          <Link to={"/buy"}>
+            <p className="w-20 h-10 font-bold bg-green-400 text-white text-center rounded-md cursor-pointer pt-2 mx-auto hover:bg-yellow-500 hover:text-black mt-10 mb-96">
+              BUY
+            </p>
+          </Link>
         </div>
       )}
     </div>

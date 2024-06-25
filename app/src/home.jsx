@@ -4,7 +4,8 @@ import { Link } from "react-router-dom";
 import "./App.css";
 
 export default function Home() {
-  let { trendingData, setTrendingData } = useContext(context);
+  let { trendingData, setTrendingData, trueLogin, setTrueLogin } =
+    useContext(context);
   let [loading, setLoading] = useState(true);
   let [load, setLoad] = useState(6);
   useEffect(() => {
@@ -524,19 +525,21 @@ export default function Home() {
         for more coins
       </p>
       {/* Connect with me */}
-      <p
-        className={
-          localStorage.getItem("theme") == "dark"
-            ? "text-white text-xl font-bold text-center mx-2 text-wrap mt-5"
-            : "text-xl font-bold text-center mx-2 text-wrap mt-5"
-        }
-      >
-        <span className="text-blue-500 hover:text-green-500">
-          <Link to={"/signup"}>SignUp</Link>
-        </span>{" "}
-        Stay at the top of <span className="text-yellow-500">CRYPTO</span> and
-        never miss an update
-      </p>
+      {!trueLogin ? (
+        <p
+          className={
+            localStorage.getItem("theme") == "dark"
+              ? "text-white text-xl font-bold text-center mx-2 text-wrap mt-5"
+              : "text-xl font-bold text-center mx-2 text-wrap mt-5"
+          }
+        >
+          <span className="text-blue-500 hover:text-green-500">
+            <Link to={"/signup"}>SignUp</Link>
+          </span>{" "}
+          Stay at the top of <span className="text-yellow-500">CRYPTO</span> and
+          never miss an update
+        </p>
+      ) : null}
       <p
         className={
           localStorage.getItem("theme") == "dark"

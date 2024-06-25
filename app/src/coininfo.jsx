@@ -1,6 +1,7 @@
 import { useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
 import Chart from "react-google-charts";
+import { Link } from "react-router-dom";
 export default function CoinInfo() {
   let { id } = useParams();
   let [data, setData] = useState({});
@@ -233,9 +234,11 @@ export default function CoinInfo() {
               {data.tickers[0].trust_score.toUpperCase()}
             </span>
           </p>
-          <p className="w-20 h-10 font-bold bg-green-400 text-white text-center rounded-md cursor-pointer pt-2 mx-auto hover:bg-yellow-500 hover:text-black">
-            BUY
-          </p>
+          <Link to={"/buy"}>
+            <p className="w-20 h-10 font-bold bg-green-400 text-white text-center rounded-md cursor-pointer pt-2 mx-auto hover:bg-yellow-500 hover:text-black">
+              BUY
+            </p>
+          </Link>
         </div>
       )}
     </div>

@@ -1,34 +1,4 @@
-import { useState } from "react";
-import { useContext } from "react";
-import { context } from "./App";
-import { Link } from "react-router-dom";
-export default function SignUp() {
-  /*  let [username, setUsername] = useState("");
-  let [email, setEmail] = useState("");
-  let [password, setPassword] = useState(""); */
-  let [sbmt, setSbmt] = useState(false);
-  let { username, setUsername, email, setEmail, password, setPassword } =
-    useContext(context);
-  function deleteAccount() {
-    let userConfirm = confirm(
-      `Are you sure ${username} you want to delete this account?`
-    );
-    if (userConfirm) {
-      localStorage.setItem("username", "");
-      localStorage.setItem("password", "");
-      localStorage.setItem("email", "");
-      alert("Deleted your account");
-      setSbmt(false);
-    }
-  }
-  function submitForm() {
-    if (username != "" || password != "" || email != "") {
-      localStorage.setItem("username", username.toLowerCase());
-      localStorage.setItem("password", password.toLowerCase());
-      localStorage.setItem("email", email.toLowerCase());
-      setSbmt(true);
-    }
-  }
+export default function Buy() {
   return (
     <div>
       <p
@@ -38,135 +8,90 @@ export default function SignUp() {
             : "text-xl font-bold text-center mx-2 text-wrap mt-16"
         }
       >
-        Signup for staying updated with the latest{" "}
-        <span className="text-yellow-500">CRYPTO</span> market trends .
+        Add your <span className="text-yellow-500">card</span> now{" "}
       </p>
-
-      {sbmt && (username != "" || password != "" || email != "") ? (
-        <div className="mt-20 w-1/3 mx-auto">
-          <img
-            className="w-44 h-44 block mx-auto"
-            src="https://cdn.dribbble.com/users/147386/screenshots/5315437/success-tick-dribbble.gif"
-            alt=""
+      <div className="w-9/12 sm:w-8/12 md:w-7/12 xl:w-6/12 2xl:w-6/12 h-auto block justify-around mx-auto mt-5 border-2 border-gray-600 rounded-md xl:flex md:block sm:block 2xl:flex">
+        <img
+          className="w-72 h-72 block mx-auto basis-1/2 mt-8"
+          src="https://static.vecteezy.com/system/resources/previews/013/166/568/original/3d-online-payment-with-credit-card-or-3d-online-business-payment-with-credit-card-png.png"
+          alt=""
+        />
+        <div className="basis-1/2">
+          <p
+            className={
+              localStorage.getItem("theme") == "dark"
+                ? "text-white text-xl font-bold mt-4 text-center xl:ml-2 2xl:ml-2"
+                : "text-xl font-bold mt-4 text-center xl:ml-2 2xl:ml-2"
+            }
+          >
+            Your payment details
+          </p>
+          <p className="text-gray-600 mt-2 ml-2">Name</p>
+          <input
+            type="text"
+            className="border-b-2 w-2/3 mt-2 block ml-2 rounded-sm bg-transparent"
           />
-          <p
-            className={
-              localStorage.getItem("theme") == "dark"
-                ? "text-md font-bold mt-2 text-center text-white"
-                : "text-md font-bold mt-2 text-center"
-            }
+          <p className="text-gray-600 mt-2 ml-2">Card Number</p>
+          <input
+            type="number"
+            className="border-b-2 w-2/3 mt-2 block ml-2 rounded-sm bg-transparent"
+          />
+          <p className="text-gray-600 mt-2 ml-2">Expiration</p>
+          <select
+            name=""
+            id=""
+            className="w-1/3 h-6 mr-2 ml-2 mt-2 bg-green-300 rounded-md"
           >
-            Signup successfull
-          </p>
-          <p
-            className={
-              localStorage.getItem("theme") == "dark"
-                ? "text-md font-bold mt-2 text-center text-white"
-                : "text-md font-bold mt-2 text-center"
-            }
+            <option value="">January</option>
+            <option value="">February</option>
+            <option value="">March</option>
+            <option value="">April</option>
+            <option value="">May</option>
+            <option value="">June</option>
+            <option value="">July</option>
+            <option value="">August</option>
+            <option value="">September</option>
+            <option value="">October</option>
+            <option value="">November</option>
+            <option value="">December</option>
+          </select>
+          <select
+            name=""
+            id=""
+            className="w-1/3 h-6 ml-2 mt-2 bg-green-300 rounded-md"
           >
-            Go to{" "}
-            <Link to={"/login"}>
-              <span className="text-blue-500">Login</span>
-            </Link>
-          </p>
-          <p
-            className="mt-5 text-red-500 text-center"
-            onClick={() => {
-              deleteAccount();
-            }}
-          >
-            Delete account?
-          </p>
+            <option value="">2027</option>
+            <option value="">2028</option>
+            <option value="">2029</option>
+            <option value="">2030</option>
+            <option value="">2031</option>
+            <option value="">2032</option>
+            <option value="">2033</option>
+            <option value="">2034</option>
+            <option value="">2035</option>
+            <option value="">2036</option>
+            <option value="">2037</option>
+            <option value="">2038</option>
+          </select>
+          <p className="text-gray-600 mt-2 ml-2 rounded-sm">CVV</p>
+          <input
+            type="text"
+            name=""
+            id=""
+            className="border-b-2 w-1/3 mt-2 block ml-2 bg-transparent mb-4"
+          />
         </div>
-      ) : (
-        <div className="block sm:block md:flex xl:flex 2xl:flex justify-around w-11/12 sm:w-9/12 md:w-3/12 xl:w-3/12 2xl:w-3/12 mx-auto border-2 border-green-500 mt-5 rounded-md">
-          <form className="basis-2/4 ml-2">
-            <p
-              className={
-                localStorage.getItem("theme") == "dark"
-                  ? "text-white font-bold text-sm mb-2  mt-2 text-center sm:text-start md:text-start xl:text-start 2xl:text-start"
-                  : "font-bold text-sm mb-2  mt-2 text-center sm:text-start md:text-start xl:text-start 2xl:text-star"
-              }
-            >
-              Username :
-            </p>
-            <input
-              className="border-2 border-green-500 rounded-md mb-2 p-1 mx-auto block sm:inline-block md:inline-block xl:inline-block 2xl:inline-block"
-              required
-              placeholder="name"
-              type="text"
-              value={username}
-              onChange={(e) => {
-                setUsername(e.target.value);
-              }}
-            />
-            <p
-              className={
-                localStorage.getItem("theme") == "dark"
-                  ? "text-white font-bold text-sm mb-2 text-center sm:text-start md:text-start xl:text-start 2xl:text-star"
-                  : "font-bold text-sm mb-2 text-center sm:text-start md:text-start xl:text-start 2xl:text-star"
-              }
-            >
-              Email :
-            </p>
-            <input
-              className="border-2 border-green-500 rounded-md mt-2 p-1 mx-auto block sm:inline-block md:inline-block xl:inline-block 2xl:inline-block"
-              type="email"
-              required
-              placeholder="email"
-              value={email}
-              onChange={(e) => {
-                setEmail(e.target.value);
-              }}
-            />
-            <p
-              className={
-                localStorage.getItem("theme") == "dark"
-                  ? "text-white font-bold text-sm mb-2 mt-2 text-center sm:text-start md:text-start xl:text-start 2xl:text-star"
-                  : "font-bold text-sm mb-2 mt-2 text-center sm:text-start md:text-start xl:text-start 2xl:text-star"
-              }
-            >
-              Password :
-            </p>
-            <input
-              className="border-2 border-green-500 rounded-md mb-2 p-1 mx-auto block sm:inline-block md:inline-block xl:inline-block 2xl:inline-block"
-              type="password"
-              value={password}
-              placeholder="password"
-              onChange={(e) => {
-                setPassword(e.target.value);
-              }}
-            />
-            <button
-              type="submit"
-              className="w-20 h-8 font-bold text-sm bg-blue-500 hover:bg-green-500 text-white rounded-md mt-6 block mx-auto"
-              onClick={() => {
-                submitForm();
-              }}
-            >
-              Sign Up
-            </button>
-          </form>
-          <div className="basis-2/4">
-            <p
-              className={
-                localStorage.getItem("theme") == "dark"
-                  ? "text-xl font-bold text-center mt-5 mb-5 text-white w-2/3 sm:w-auto md:w-auto xl:w-auto 2xl:w-auto mx-auto"
-                  : "text-xl font-bold text-center mt-5 mb-5 w-2/3 sm:w-auto md:w-auto xl:w-auto 2xl:w-auto mx-auto"
-              }
-            >
-              Supercharge your <span className="text-yellow-500">crypto</span>{" "}
-              hunt with <span className="text-green-500">Cryptophilio</span>
-            </p>
-            <img
-              className="w-44 h-44 block mt-5 mx-auto"
-              src="https://cdn0.iconfinder.com/data/icons/crypotonix/512/worldwide.png"
-              alt=""
-            />
-          </div>
-        </div>
-      )}
+      </div>
+      <p
+        className={
+          localStorage.getItem("theme") == "dark"
+            ? "text-white text-md font-bold text-center mx-2 text-wrap mt-5"
+            : "text-md font-bold text-center mx-2 text-wrap mt-5"
+        }
+      >
+        Add you <span className="text-yellow-500">card</span> now to start your{" "}
+        <span className="text-yellow-500">crypto</span> hunt now
+      </p>
       <p
         className={
           localStorage.getItem("theme") == "dark"
@@ -287,8 +212,8 @@ export default function SignUp() {
       <p
         className={
           localStorage.getItem("theme") == "dark"
-            ? "text-white text-sm font-bold text-center  "
-            : "text-sm font-bold text-center "
+            ? "text-white text-sm font-bold text-center  mb-96"
+            : "text-sm font-bold text-center mb-96"
         }
       >
         © 2024 Cryptophilio. All rights reserved
