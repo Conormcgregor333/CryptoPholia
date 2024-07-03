@@ -1,5 +1,5 @@
 <h1 align="center">Hi 👋, I'm Siddharth Pareek</h1>
-<h3 align="center">A web developer from India</h3>
+<h3 align="center">A web developer</h3>
 <h1 align="center">CryptoPholio</h1>
 <p align="center">A robust online marketplace designed cryptocurrencies and NFTs (Non-Fungible Tokens).</p>
 
